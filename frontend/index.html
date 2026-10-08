@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Credit | AI Voice Qualification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">HC</div>
+        <div>
+          <strong>Home Credit</strong>
+          <span>AI Voice Desk</span>
+        </div>
+      </div>
+      <nav>
+        <a class="nav-item active" href="#overview"><span>▦</span> Overview</a>
+        <a class="nav-item" href="#conversation"><span>◉</span> Live Call</a>
+        <a class="nav-item" href="#history"><span>◷</span> Call History</a>
+      </nav>
+      <div class="sidebar-note">
+        <div class="mini-dot"></div>
+        <div>
+          <strong>Qualification Engine</strong>
+          <p>Seven-point LAP eligibility check</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar" id="overview">
+        <div>
+          <p class="eyebrow">LAP PRELIMINARY QUALIFICATION</p>
+          <h1>AI Voice Qualification Desk</h1>
+          <p class="subtitle">Run a guided customer conversation, capture eligibility data, and review the result in real time.</p>
+        </div>
+        <div id="statusBadge" class="status-badge neutral"><span></span> Not Started</div>
+      </header>
+
+      <section class="setup-card card">
+        <div class="section-heading">
+          <div>
+            <h2>Start a customer call</h2>
+            <p>Choose the customer details before starting the AI conversation.</p>
+          </div>
+          <div class="secure-label">● Local demo</div>
+        </div>
+        <div class="setup-grid">
+          <label>Customer name
+            <input id="customerName" value="Rahul" autocomplete="off">
+          </label>
+          <label>Conversation language
+            <select id="language">
+              <option>English</option>
+              <option>Hindi</option>
+            </select>
+          </label>
+          <button id="startBtn" class="primary-btn"><span>▶</span> Start Call</button>
+        </div>
+      </section>
+
+      <section class="metrics-grid">
+        <div class="metric card">
+          <div class="metric-icon">◉</div>
+          <div><span>Call Status</span><strong id="metricStatus">Not Started</strong></div>
+        </div>
+        <div class="metric card">
+          <div class="metric-icon">✓</div>
+          <div><span>Qualification Progress</span><strong id="metricProgress">0 / 7</strong></div>
+        </div>
+        <div class="metric card">
+          <div class="metric-icon">₹</div>
+          <div><span>Requested Loan</span><strong id="metricLoan">—</strong></div>
+        </div>
+        <div class="metric card">
+          <div class="metric-icon">♙</div>
+          <div><span>Customer</span><strong id="metricCustomer">Rahul</strong></div>
+        </div>
+      </section>
+
+      <section class="work-grid" id="conversation">
+        <section class="card conversation-card">
+          <div class="card-title-row">
+            <div>
+              <h2>Live Conversation</h2>
+              <p id="callIdLabel">No active call</p>
+            </div>
+            <div class="live-indicator"><span></span> Live</div>
+          </div>
+          <div id="messages" class="messages">
+            <div class="empty-state">
+              <div class="empty-icon">◉</div>
+              <h3>Ready to start</h3>
+              <p>Start a call and the AI agent will guide the customer through the LAP qualification questions.</p>
+            </div>
+          </div>
+          <div class="conversation-controls">
+            <button id="micBtn" class="secondary-btn mic-btn" disabled>🎤 <span>Speak</span></button>
+            <div class="text-entry">
+              <input id="textInput" placeholder="Type a customer response for testing..." autocomplete="off">
+              <button id="sendBtn" class="primary-btn" disabled>Send</button>
+            </div>
+            <button id="stopBtn" class="danger-btn" disabled>End Call</button>
+          </div>
+          <p id="support" class="support"></p>
+        </section>
+
+        <aside class="card qualification-card">
+          <div class="card-title-row">
+            <div>
+              <h2>Qualification</h2>
+              <p>Real-time eligibility checklist</p>
+            </div>
+            <strong id="progressText" class="progress-text">0%</strong>
+          </div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+          <div id="state" class="checklist"></div>
+          <div id="decisionBox" class="decision-box neutral-decision">
+            <span class="decision-dot"></span>
+            <div><strong>Awaiting call</strong><p>The qualification result will appear here.</p></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card history-card" id="history">
+        <div class="section-heading history-heading">
+          <div>
+            <h2>Recent Call History</h2>
+            <p>Completed qualification conversations stored locally in SQLite.</p>
+          </div>
+          <button id="refreshHistory" class="ghost-btn">↻ Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Customer</th><th>Status</th><th>Started</th><th>Transcript</th></tr></thead>
+            <tbody id="historyBody"><tr><td colspan="4" class="table-empty">No completed calls yet.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>Home Credit AI Voice Agent · Local development demo · Preliminary qualification only</footer>
+    </main>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
